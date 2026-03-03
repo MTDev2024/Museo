@@ -4,7 +4,7 @@ export function getImageUrl(imageId) {
   return `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`;
 }
 
-export async function searchArtworks(query, limit = 20) {
+export async function searchArtworks(query, limit = 50) {
   const params = new URLSearchParams({
     q: query,
     fields: "id,title,artist_display,image_id,date_display",

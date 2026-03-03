@@ -2,8 +2,27 @@ import { useState } from "react";
 import { useArtworks } from "../hooks/useArtworks";
 import ArtworkCard from "../components/ArtworkCard";
 
+// Liste des artistes affichés aléatoirement au chargement
+const ARTISTS = [
+  "Van Gogh",
+  "Monet",
+  "Rembrandt",
+  "Seurat",
+  "Picasso",
+  "Cézanne",
+  "Caravaggio",
+  "Renoir",
+];
+
 function Gallery() {
-  const [query, setQuery] = useState("Van Gogh");
+  // Valeur par défaut fixe (désactivée)
+  // const [query, setQuery] = useState("Van Gogh");
+
+  // Artiste aléatoire choisi une seule fois au montage du composant
+  const [query, setQuery] = useState(
+    () => ARTISTS[Math.floor(Math.random() * ARTISTS.length)],
+  );
+
   const { artworks, loading, error } = useArtworks(query);
 
   return (
