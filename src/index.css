@@ -1,1 +1,31 @@
 @import "tailwindcss";
+
+/* Active le mode sombre via la classe .dark sur <html> */
+@variant dark (&:where(.dark, .dark *));
+
+/* Variables CSS — palette Arsham */
+:root {
+  --bg: #faf8f5;
+  --bg-card: #f0ede8;
+  --text: #1a1a1a;
+  --text-muted: #6b6560;
+  --accent: #b5a898;
+  --border: #ddd9d4;
+}
+
+.dark {
+  --bg: #0f0f0f;
+  --bg-card: #1a1a1a;
+  --text: #f0ede8;
+  --text-muted: #8a8480;
+  --accent: #c9a84c;
+  --border: #2a2a2a;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}

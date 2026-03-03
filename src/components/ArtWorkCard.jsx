@@ -6,17 +6,39 @@ function ArtworkCard({ artwork }) {
 
   return (
     <div
-      className="border rounded overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
       onClick={() => navigate(`/artwork/${artwork.id}`)}
+      className="cursor-pointer group overflow-hidden"
+      style={{
+        backgroundColor: "var(--bg-card)",
+        border: "1px solid var(--border)",
+      }}
     >
-      <img
-        src={getImageUrl(artwork.image_id)}
-        alt={artwork.title}
-        className="w-full h-48 object-cover"
-      />
-      <div className="p-2">
-        <p className="font-bold text-sm">{artwork.title}</p>
-        <p className="text-xs text-gray-500">{artwork.artist_display}</p>
+      <div className="overflow-hidden aspect-square">
+        <img
+          src={getImageUrl(artwork.image_id)}
+          alt={artwork.title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+
+      <div className="p-4">
+        <p
+          className="text-xs tracking-widest uppercase truncate"
+          style={{ color: "var(--text-muted)" }}
+        >
+          {artwork.artist_display?.split("\n")[0]}
+        </p>
+        <p
+          className="text-sm font-light mt-1 truncate"
+          style={{ color: "var(--text)" }}
+        >
+          {artwork.title}
+        </p>
+        {artwork.date_display && (
+          <p className="text-xs mt-1" style={{ color: "var(--accent)" }}>
+            {artwork.date_display}
+          </p>
+        )}
       </div>
     </div>
   );
