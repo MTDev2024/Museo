@@ -38,7 +38,7 @@ function ArtworkDetail() {
   const favorited = isFavorite(artwork.id);
 
   return (
-    <div className="px-8 py-12 max-w-screen-xl mx-auto">
+    <div className="px-8 py-12 max-w-7xl mx-auto">
       {/* Retour */}
       <button
         onClick={() => navigate(-1)}

@@ -7,7 +7,7 @@ function Favorites() {
   const navigate = useNavigate();
 
   return (
-    <div className="px-8 py-12 max-w-screen-xl mx-auto">
+    <div className="px-8 py-12 max-w-7xl mx-auto">
       {/* En-tête */}
       <div className="mb-10">
         <p
