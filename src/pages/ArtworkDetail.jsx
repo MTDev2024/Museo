@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getArtwork, getImageUrl } from "../services/chicagoApi";
 import { useFavorites } from "../hooks/useFavorites";
+import PageTransition from "../components/PageTransition";
 
 function ArtworkDetail() {
   const { id } = useParams();
@@ -18,12 +19,14 @@ function ArtworkDetail() {
 
   if (loading)
     return (
-      <p
-        className="p-12 text-xs tracking-widest uppercase"
-        style={{ color: "var(--text-muted)" }}
-      >
-        Chargement...
-      </p>
+      <PageTransition>
+        <p
+          className="p-12 text-xs tracking-widest uppercase"
+          style={{ color: "var(--text-muted)" }}
+        >
+          Chargement...
+        </p>
+      </PageTransition>
     );
   if (!artwork)
     return (

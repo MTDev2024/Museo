@@ -14,7 +14,7 @@ function Navbar({ toggleTheme, dark }) {
     >
       <NavLink
         to="/"
-        className="text-2xl font-light tracking-[0.3em]"
+        className="text-2xl font-bold tracking-[0.3em]"
         style={{ color: "var(--text)" }}
       >
         MUSEO
@@ -23,7 +23,7 @@ function Navbar({ toggleTheme, dark }) {
       <div className="flex items-center gap-8">
         <NavLink
           to="/"
-          className="text-xs tracking-widest uppercase"
+          className="text-l tracking-widest uppercase"
           style={({ isActive }) => ({
             color: isActive ? "var(--accent)" : "var(--text-muted)",
           })}
@@ -33,7 +33,7 @@ function Navbar({ toggleTheme, dark }) {
 
         <NavLink
           to="/favorites"
-          className="text-xs tracking-widest uppercase"
+          className="text-l tracking-widest uppercase"
           style={({ isActive }) => ({
             color: isActive ? "var(--accent)" : "var(--text-muted)",
           })}
@@ -43,7 +43,7 @@ function Navbar({ toggleTheme, dark }) {
 
         <button
           onClick={toggleTheme}
-          className="text-xs tracking-widest uppercase"
+          className="text-l tracking-widest uppercase"
           style={{ color: "var(--text-muted)" }}
         >
           {dark ? "◑ Clair" : "◐ Sombre"}

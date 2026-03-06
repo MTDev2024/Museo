@@ -2,10 +2,10 @@ import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 
 // Positions générées une fois au chargement du module, hors du composant
-const COUNT = 120;
+const COUNT = 160;
 const positions = new Float32Array(COUNT * 3);
 for (let i = 0; i < COUNT; i++) {
-  positions[i * 3]     = (Math.random() - 0.5) * 20; // x
+  positions[i * 3] = (Math.random() - 0.5) * 20; // x
   positions[i * 3 + 1] = (Math.random() - 0.5) * 20; // y
   positions[i * 3 + 2] = (Math.random() - 0.5) * 10; // z
 }

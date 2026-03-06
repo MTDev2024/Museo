@@ -4,8 +4,12 @@ import Gallery from "./pages/Gallery";
 import ArtworkDetail from "./pages/ArtworkDetail";
 import Favorites from "./pages/Favorites";
 import { useTheme } from "./hooks/useTheme";
+import { useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
+  const location = useLocation();
+
   const { dark, toggleTheme } = useTheme();
 
   return (
@@ -17,11 +21,13 @@ function App() {
       }}
     >
       <Navbar toggleTheme={toggleTheme} dark={dark} />
-      <Routes>
-        <Route path="/" element={<Gallery />} />
-        <Route path="/artwork/:id" element={<ArtworkDetail />} />
-        <Route path="/favorites" element={<Favorites />} />
-      </Routes>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Gallery />} />
+          <Route path="/artwork/:id" element={<ArtworkDetail />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
+      </AnimatePresence>
     </div>
   );
 }
