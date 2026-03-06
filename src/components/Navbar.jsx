@@ -22,7 +22,7 @@ function Navbar({ toggleTheme, dark }) {
 
       <div className="flex items-center gap-8">
         <NavLink
-          to="/"
+          to="/gallery"
           className="text-l tracking-widest uppercase"
           style={({ isActive }) => ({
             color: isActive ? "var(--accent)" : "var(--text-muted)",

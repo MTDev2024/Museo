@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Gallery from "./pages/Gallery";
 import ArtworkDetail from "./pages/ArtworkDetail";
+import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import { useTheme } from "./hooks/useTheme";
 import { useLocation } from "react-router-dom";
@@ -23,7 +24,8 @@ function App() {
       <Navbar toggleTheme={toggleTheme} dark={dark} />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Gallery />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/artwork/:id" element={<ArtworkDetail />} />
           <Route path="/favorites" element={<Favorites />} />
         </Routes>
