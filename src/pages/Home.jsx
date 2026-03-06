@@ -79,7 +79,7 @@ function Home() {
               color: "var(--bg)",
             }}
           >
-            ENTRER LA COLLECTION
+            ENTRER DANS LA COLLECTION
           </motion.button>
         </div>
       </div>

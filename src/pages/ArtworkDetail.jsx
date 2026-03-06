@@ -11,6 +11,18 @@ function ArtworkDetail() {
   const [loading, setLoading] = useState(true);
   const { isFavorite, toggleFavorite } = useFavorites();
 
+  const [parallax, setParallax] = useState({ x: 0, y: 0 });
+
+  function handleMouseMove(e) {
+    const x = (e.clientX / window.innerWidth - 0.5) * 15;
+    const y = (e.clientY / window.innerHeight - 0.5) * 15;
+    setParallax({ x, y });
+  }
+
+  function handleMouseLeave() {
+    setParallax({ x: 0, y: 0 });
+  }
+
   useEffect(() => {
     getArtwork(id)
       .then((data) => setArtwork(data))
@@ -51,13 +63,21 @@ function ArtworkDetail() {
         ← Retour
       </button>
 
-      <div className="flex flex-col lg:flex-row gap-16">
+      <div
+        className="flex flex-col lg:flex-row gap-16"
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
         {/* Image */}
-        <div className="lg:w-1/2">
+        <div className="lg:w-1/2 overflow-hidden">
           <img
             src={getImageUrl(artwork.image_id)}
             alt={artwork.title}
             className="w-full object-contain"
+            style={{
+              transform: `translate(${parallax.x}px, ${parallax.y}px)`,
+              transition: "transform 0.3s ease",
+            }}
           />
         </div>
 
