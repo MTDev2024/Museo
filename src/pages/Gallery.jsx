@@ -87,8 +87,8 @@ function Gallery() {
               className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px cursor-brush"
               style={{ backgroundColor: "var(--border)" }}
             >
-              {artworks.map((artwork) => (
-                <ArtworkCard key={artwork.id} artwork={artwork} />
+              {artworks.map((artwork, index) => (
+                <ArtworkCard key={artwork.id} artwork={artwork} index={index} />
               ))}
             </div>
           </div>
