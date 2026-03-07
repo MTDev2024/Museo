@@ -24,7 +24,7 @@ function Gallery() {
     () => ARTISTS[Math.floor(Math.random() * ARTISTS.length)],
   );
 
-  const { artworks, loading, error } = useArtworks(query);
+  const { artworks, loading, error, hasMore, loadMore } = useArtworks(query);
 
   return (
     <PageTransition>
@@ -91,6 +91,15 @@ function Gallery() {
                 <ArtworkCard key={artwork.id} artwork={artwork} index={index} />
               ))}
             </div>
+            {hasMore && (
+              <button
+                className="text-xs tracking-widest uppercase mt-4 py-3 px-6 transition-colors text-(--accent) hover:bg-(--accent) hover:text-(--bg)"
+                style={{ border: "1px solid var(--accent)" }}
+                onClick={loadMore}
+              >
+                AFFICHER PLUS
+              </button>
+            )}
           </div>
         </div>
       </div>

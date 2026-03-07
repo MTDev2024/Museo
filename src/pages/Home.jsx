@@ -61,7 +61,7 @@ function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
           >
-            Une collection d&apos;art mondiale
+            Chicago
           </motion.p>
 
           <motion.button
@@ -79,7 +79,7 @@ function Home() {
               color: "var(--bg)",
             }}
           >
-            ENTRER DANS LA COLLECTION
+            VOIR LA COLLECTION
           </motion.button>
         </div>
       </div>

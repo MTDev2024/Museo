@@ -4,11 +4,30 @@ import { searchArtworks } from "../services/chicagoApi";
 function reducer(state, action) {
   switch (action.type) {
     case "FETCH_START":
-      return { artworks: [], loading: true, error: null };
+      return {
+        artworks: [],
+        loading: true,
+        error: null,
+        page: 1,
+        hasMore: false,
+      };
     case "FETCH_SUCCESS":
-      return { artworks: action.payload, loading: false, error: null };
+      return {
+        ...state,
+        artworks: action.payload,
+        loading: false,
+        hasMore: action.hasMore,
+      };
+    case "FETCH_MORE_SUCCESS":
+      return {
+        ...state,
+        artworks: [...state.artworks, ...action.payload],
+        loading: false,
+        page: state.page + 1,
+        hasMore: action.hasMore,
+      };
     case "FETCH_ERROR":
-      return { artworks: [], loading: false, error: action.payload };
+      return { ...state, loading: false, error: action.payload };
     default:
       return state;
   }
@@ -19,6 +38,8 @@ export function useArtworks(query) {
     artworks: [],
     loading: false,
     error: null,
+    page: 1,
+    hasMore: false,
   });
 
   useEffect(() => {
@@ -27,9 +48,19 @@ export function useArtworks(query) {
     dispatch({ type: "FETCH_START" });
 
     searchArtworks(query)
-      .then((data) => dispatch({ type: "FETCH_SUCCESS", payload: data }))
+      .then(({ artworks, hasMore }) =>
+        dispatch({ type: "FETCH_SUCCESS", payload: artworks, hasMore }),
+      )
       .catch((err) => dispatch({ type: "FETCH_ERROR", payload: err.message }));
   }, [query]);
 
-  return state;
+  function loadMore() {
+    searchArtworks(query, 12, state.page + 1)
+      .then(({ artworks, hasMore }) =>
+        dispatch({ type: "FETCH_MORE_SUCCESS", payload: artworks, hasMore }),
+      )
+      .catch((err) => dispatch({ type: "FETCH_ERROR", payload: err.message }));
+  }
+
+  return { ...state, loadMore };
 }

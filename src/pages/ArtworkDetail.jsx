@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getArtwork, getImageUrl } from "../services/chicagoApi";
 import { useFavorites } from "../hooks/useFavorites";
 import PageTransition from "../components/PageTransition";
+import ImageModal from "../components/ImageModal";
 
 function ArtworkDetail() {
   const { id } = useParams();
@@ -12,6 +13,8 @@ function ArtworkDetail() {
   const { isFavorite, toggleFavorite } = useFavorites();
 
   const [parallax, setParallax] = useState({ x: 0, y: 0 });
+
+  const [modalOpen, setModalOpen] = useState(false);
 
   function handleMouseMove(e) {
     const x = (e.clientX / window.innerWidth - 0.5) * 15;
@@ -73,7 +76,8 @@ function ArtworkDetail() {
           <img
             src={getImageUrl(artwork.image_id)}
             alt={artwork.title}
-            className="w-full object-contain"
+            className="w-full object-contain cursor-zoom-in"
+            onClick={() => setModalOpen(true)}
             style={{
               transform: `translate(${parallax.x}px, ${parallax.y}px)`,
               transition: "transform 0.3s ease",
@@ -180,6 +184,13 @@ function ArtworkDetail() {
           )}
         </div>
       </div>
+
+      {modalOpen && (
+        <ImageModal
+          src={getImageUrl(artwork.image_id, "1686,")}
+          onClose={() => setModalOpen(false)}
+        />
+      )}
     </div>
   );
 }
