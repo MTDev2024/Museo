@@ -105,10 +105,16 @@ function ArtworkCard({ artwork, index }) {
           className="overflow-hidden aspect-square"
           style={{ position: "relative", zIndex: 1 }}
         >
+          {/* LCP (Largest Contentful Paint) : la première carte (index 0) est le plus grand
+              élément visible à l'écran au chargement. On lui dit de se charger immédiatement
+              et en priorité absolue. Les autres images attendent d'être proches du viewport
+              (lazy loading) pour ne pas ralentir le chargement initial. */}
           <img
             src={getImageUrl(artwork.image_id)}
             alt={artwork.title}
             className="w-full h-full object-cover transition-transform duration-500"
+            loading={index === 0 ? "eager" : "lazy"}
+            fetchPriority={index === 0 ? "high" : "auto"}
           />
         </div>
 
