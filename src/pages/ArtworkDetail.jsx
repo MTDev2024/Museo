@@ -80,7 +80,9 @@ function ArtworkDetail() {
             onClick={() => setModalOpen(true)}
             role="button"
             tabIndex={0}
-            onKeyDown={(e) => { if (e.key === "Enter") setModalOpen(true); }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") setModalOpen(true);
+            }}
             style={{
               transform: `translate(${parallax.x}px, ${parallax.y}px)`,
               transition: "transform 0.3s ease",
