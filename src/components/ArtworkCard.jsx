@@ -52,6 +52,11 @@ function ArtworkCard({ artwork, index }) {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         className="overflow-hidden"
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") navigate(`/artwork/${artwork.id}`);
+        }}
         style={{
           position: "relative",
           backgroundColor: "var(--bg-card)",

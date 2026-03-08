@@ -78,6 +78,9 @@ function ArtworkDetail() {
             alt={artwork.title}
             className="w-full object-contain cursor-zoom-in"
             onClick={() => setModalOpen(true)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === "Enter") setModalOpen(true); }}
             style={{
               transform: `translate(${parallax.x}px, ${parallax.y}px)`,
               transition: "transform 0.3s ease",
@@ -188,6 +191,7 @@ function ArtworkDetail() {
       {modalOpen && (
         <ImageModal
           src={getImageUrl(artwork.image_id, "1686,")}
+          alt={artwork.title}
           onClose={() => setModalOpen(false)}
         />
       )}

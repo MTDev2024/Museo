@@ -55,6 +55,7 @@ function Gallery() {
             <input
               type="text"
               placeholder="RECHERCHER UN ARTISTE..."
+              aria-label="Rechercher un artiste"
               className="w-full max-w-md text-xs tracking-widest uppercase bg-transparent outline-none pb-2 mb-12"
               style={{
                 borderBottom: "1px solid var(--border)",

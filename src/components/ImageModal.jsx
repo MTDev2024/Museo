@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
 
-function ImageModal({ src, onClose }) {
+function ImageModal({ src, alt, onClose }) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
@@ -25,8 +25,17 @@ function ImageModal({ src, onClose }) {
       }}
       onClick={onClose}
     >
-      <motion.div onClick={(e) => e.stopPropagation()}>
-        <img src={src} className="max-h-[90vh] max-w-[90vw] object-contain" />
+      <motion.div
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Image en plein écran"
+      >
+        <img
+          src={src}
+          alt={alt}
+          className="max-h-[90vh] max-w-[90vw] object-contain"
+        />
       </motion.div>
     </motion.div>,
     document.body,
