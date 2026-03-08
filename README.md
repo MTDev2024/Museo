@@ -12,6 +12,10 @@ Une galerie d'art interactive construite avec React, affichant les collections d
 
 ![Favoris](https://raw.githubusercontent.com/MTDev2024/Museo/main/public/screenshots/museo_favorites.png)
 
+## Lighthouse
+
+![Lighthouse](https://raw.githubusercontent.com/MTDev2024/Museo/main/public/screenshots/Lighthouse.png)
+
 ## Stack
 
 - React + Vite
