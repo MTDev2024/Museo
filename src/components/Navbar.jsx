@@ -10,7 +10,7 @@ function Navbar({ toggleTheme, dark }) {
         borderBottom: "1px solid var(--border)",
         backgroundColor: "var(--bg)",
       }}
-      className="flex items-center justify-between px-8 py-5 sticky top-0 z-50"
+      className="flex items-center justify-between px-8 py-5 sticky top-0 z-50 flex-wrap"
     >
       <NavLink
         to="/"
@@ -20,7 +20,7 @@ function Navbar({ toggleTheme, dark }) {
         MUSEO
       </NavLink>
 
-      <div className="flex items-center gap-8">
+      <div className="flex items-center gap-4 md:gap-8">
         <NavLink
           to="/gallery"
           className="text-l tracking-widest uppercase"

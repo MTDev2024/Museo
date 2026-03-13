@@ -56,7 +56,7 @@ function ArtworkDetail() {
   const favorited = isFavorite(artwork.id);
 
   return (
-    <div className="px-8 py-12 max-w-7xl mx-auto">
+    <div className="px-4 md:px-8 py-12 max-w-7xl mx-auto">
       {/* Retour */}
       <button
         onClick={() => navigate(-1)}
@@ -182,7 +182,7 @@ function ArtworkDetail() {
 
           {artwork.description && (
             <p
-              className="text-xs leading-relaxed mt-4"
+              className="text-sm leading-relaxed mt-4"
               style={{ color: "var(--text-muted)" }}
               dangerouslySetInnerHTML={{ __html: artwork.description }}
             />
