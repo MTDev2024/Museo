@@ -9,7 +9,7 @@ function Favorites() {
 
   return (
     <PageTransition>
-      <div className="px-8 py-12 max-w-7xl mx-auto">
+      <div className="px-4 md:px-8 py-12 max-w-7xl mx-auto">
         {/* En-tête */}
         <div className="mb-10">
           <p

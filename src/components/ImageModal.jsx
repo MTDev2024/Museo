@@ -14,10 +14,10 @@ function ImageModal({ src, alt, onClose }) {
     <motion.div
       style={{
         position: "fixed",
-        top: 0,
+        top: "4rem",
         left: 0,
-        right: 0,
-        bottom: 0,
+        width: "100vw",
+        height: "calc(100vh - 4rem)",
         backgroundColor: "rgba(0, 0, 0, 1)",
         display: "flex",
         alignItems: "center",
@@ -34,7 +34,7 @@ function ImageModal({ src, alt, onClose }) {
         <img
           src={src}
           alt={alt}
-          className="max-h-[90vh] max-w-[90vw] object-contain"
+          className="max-h-[90vh] max-w-[95vw] object-contain"
         />
       </motion.div>
     </motion.div>,
