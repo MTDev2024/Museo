@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { getImageUrl } from "../services/chicagoApi";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 function ArtworkCard({ artwork, index }) {
   const navigate = useNavigate();
   const cardRef = useRef();
+  const [imgLoaded, setImgLoaded] = useState(false);
 
   function handleMouseMove(e) {
     const card = cardRef.current;
@@ -108,7 +109,12 @@ function ArtworkCard({ artwork, index }) {
           <img
             src={getImageUrl(artwork.image_id)}
             alt={artwork.title}
+            onLoad={() => setImgLoaded(true)}
             className="w-full h-full object-cover transition-transform duration-500"
+            style={{
+              opacity: imgLoaded ? 1 : 0,
+              transition: "opacity 0.4s ease, transform 0.5s ease",
+            }}
           />
         </div>
 
@@ -120,7 +126,7 @@ function ArtworkCard({ artwork, index }) {
             {artwork.artist_display?.split("\n")[0]}
           </p>
           <p
-            className="text-sm font-light mt-1 truncate"
+            className="font-display text-sm font-light mt-1 truncate"
             style={{ color: "var(--text)" }}
           >
             {artwork.title}

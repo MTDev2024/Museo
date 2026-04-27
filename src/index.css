@@ -18,6 +18,12 @@
   --text-muted: #6b6560;
   --accent: #b5a898;
   --border: #ddd9d4;
+  --font-display: 'Cormorant Garamond', serif;
+}
+
+/* Classe utilitaire pour la police d'affichage */
+.font-display {
+  font-family: var(--font-display);
 }
 
 .dark {

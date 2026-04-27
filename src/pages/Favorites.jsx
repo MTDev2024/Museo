@@ -19,7 +19,7 @@ function Favorites() {
             Ma collection
           </p>
           <h1
-            className="text-4xl font-light tracking-widest uppercase"
+            className="font-display text-4xl font-light tracking-widest uppercase"
             style={{ color: "var(--text)" }}
           >
             Favoris

@@ -34,7 +34,7 @@ function Home() {
           </motion.p>
 
           <motion.h1
-            className="text-5xl md:text-8xl font-thin tracking-[0.2em] uppercase"
+            className="font-display text-5xl md:text-8xl font-thin tracking-[0.2em] uppercase"
             style={{ color: "var(--text)" }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

@@ -100,7 +100,7 @@ function ArtworkDetail() {
               {artwork.artist_display?.split("\n")[0]}
             </p>
             <h1
-              className="text-3xl font-light tracking-wide"
+              className="font-display text-3xl font-light tracking-wide"
               style={{ color: "var(--text)" }}
             >
               {artwork.title}
