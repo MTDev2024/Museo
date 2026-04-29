@@ -19,10 +19,6 @@ const ARTISTS = [
 ];
 
 function Gallery() {
-  // Valeur par défaut fixe (désactivée)
-  // const [query, setQuery] = useState("Van Gogh")
-
-  // Artiste aléatoire choisi une seule fois au montage du composant
   const [query, setQuery] = useState(
     () => ARTISTS[Math.floor(Math.random() * ARTISTS.length)],
   );
