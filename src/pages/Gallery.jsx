@@ -2,6 +2,7 @@ import { useState } from "react";
 import ParticlesBackground from "../components/ParticlesBackground";
 import { useArtworks } from "../hooks/useArtworks";
 import ArtworkCard from "../components/ArtworkCard";
+import ArtistSearch from "../components/ArtistSearch";
 import PageTransition from "../components/PageTransition";
 
 const ARTISTS = [
@@ -13,6 +14,8 @@ const ARTISTS = [
   "Cézanne",
   "Caravaggio",
   "Renoir",
+  "Delacroix",
+  "Manet",
 ];
 
 function Gallery() {
@@ -52,19 +55,7 @@ function Gallery() {
             </div>
 
             {/* Barre de recherche */}
-            <input
-              type="text"
-              placeholder="RECHERCHER UN ARTISTE..."
-              aria-label="Rechercher un artiste"
-              className="w-full max-w-md text-xs tracking-widest uppercase bg-transparent outline-none pb-2 mb-12"
-              style={{
-                borderBottom: "1px solid var(--border)",
-                color: "var(--text)",
-              }}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") setQuery(e.target.value);
-              }}
-            />
+            <ArtistSearch onSelect={(name) => setQuery(name)} />
 
             {loading && (
               <p

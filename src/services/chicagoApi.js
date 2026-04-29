@@ -33,3 +33,19 @@ export async function getArtwork(id) {
   const data = await res.json();
   return data.data;
 }
+
+export async function searchArtists(query, limit = 25) {
+  const params = new URLSearchParams({
+    q: query,
+    fields: "title,is_artist",
+    limit,
+  });
+  const res = await fetch(`${BASE_URL}/agents/search?${params}`);
+  const data = await res.json();
+
+  return (data.data ?? [])
+    .filter((a) => a.is_artist === true)
+    .map((a) => a.title)
+    .filter(Boolean)
+    .filter((name) => name.toLowerCase().includes(query.toLowerCase()));
+}
