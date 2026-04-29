@@ -19,7 +19,7 @@ Browse thousands of artworks, search by artist, and save your favorites.
 ## Lighthouse
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/MTDev2024/Museo/main/public/screenshots/Lighthouse.png" width="450" />
+  <img src="https://raw.githubusercontent.com/MTDev2024/Museo/main/public/screenshots/Lighthouse.png" width="300" />
 </p>
 
 ---
